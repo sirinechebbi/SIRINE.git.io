@@ -1,0 +1,115 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1rem;
+    line-height: 1.7;
+    color: #161616;
+    background-color: #f3f3f3;
+    display: grid;
+    grid-template-columns: 5rem 1fr;
+    grid-template-rows: auto 1fr auto;
+    grid-template-areas:
+    "sidebar header"
+    "sidebar main"
+    "footer footer";
+    min-block-size: 100vh;
+    transition: grid-template-columns 0.3s ease;
+}
+
+.dashboard-header {
+    grid-area: header;
+    background-color: #fff;
+    padding: 1.25rem;
+}
+
+.dashboard-footer {
+    grid-area: footer;
+    background-color: #fff;
+    padding: 1.25rem;
+}
+
+.dashboard-sidebar {
+    grid-area: sidebar;
+    color: #fff;
+    background-color: #1d1d29;
+    position: relative;
+}
+
+.dashboard-main {
+    grid-area: main;
+    padding: 1.25rem;
+    display: grid;
+    gap: 1rem;
+}
+
+  /* Sidebar Resize Button */
+.logo {
+    display: flex;
+    justify-content: center;
+    font-size: 3rem;
+    line-height: 1.3;
+}
+
+.dashboard-sidebar button {
+    position: absolute;
+    inset: 9rem -1rem auto auto;
+    width: 2rem;
+    aspect-ratio: 1;
+    background-color: #fff;
+    border: transparent;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+body.sb-expand {
+    grid-template-columns: 12.5rem 1fr;
+}
+
+  /* Card Styles */
+.card {
+    padding: 1rem;
+    min-block-size: 7rem;
+    background-color: #fff;
+    border-radius: 0.5rem;
+}
+
+  /* Unique Card Styles */
+.card-1 {
+    background-image: linear-gradient(62deg, #fbab7e 0%, #f7ce68 100%);
+}
+
+  /* Responsive Layout */
+@media (min-width: 768px) {
+    .dashboard-main {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+    .card {
+        grid-area: span 1 / span 2;
+    }
+
+    .card-1 {
+        grid-area: span 1 / span 4;
+    }
+
+
+@media (min-width: 992px) {
+    .card-2, .card-3 {
+        grid-area: auto;
+    }
+
+    .card-4 {
+        grid-area: 3 / 1 / 4 / 2;
+    }
+
+    .card-5 {
+        grid-area: 3 / 2 / 4 / 3;
+    }
+
+    .card-6, .card-7 {
+        grid-area: span 2 / auto;
+    }
+
+    .card-10, .card-11, .card-12, .card-13 {
+        grid-area: auto;
+    }
+}
